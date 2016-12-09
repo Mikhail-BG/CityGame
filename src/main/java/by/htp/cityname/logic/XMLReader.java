@@ -1,4 +1,4 @@
-package by.htp.logic;
+package by.htp.cityname.logic;
 
 import java.io.IOException;
 import java.util.HashSet;

@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.Scanner;
 
 import by.htp.cityname.entity.City;
-import by.htp.logic.XMLReader;
+import by.htp.cityname.logic.XMLReader;
 
 public class MenuItems {
 	private static HashSet<City> cities = new HashSet<City>();

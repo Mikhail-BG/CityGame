@@ -1,4 +1,4 @@
-package by.htp.logic;
+package by.htp.cityname.logic;
 
 import java.util.HashSet;
 
@@ -41,8 +41,4 @@ public class XMLSAXHandler extends DefaultHandler {
 			cities.add(city);
 		}
 	}
-	
-
-	
-
 }
