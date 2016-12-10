@@ -12,6 +12,7 @@ public class MenuItems {
 	private static HashSet<City> usedCities = new HashSet<City>();
 	
 	public static void menuStart(){
+		@SuppressWarnings("unused")
 		XMLReader reader = new XMLReader(cities);
 		System.out.println("Для выхода введите '0'.");
 		System.out.println("введите название города и нажмите enter: ");
