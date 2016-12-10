@@ -3,6 +3,7 @@ package by.htp.cityname.entity;
 import java.util.HashSet;
 import java.util.Iterator;
 
+@SuppressWarnings("rawtypes")
 public class CitySet implements Iterable {
 	private HashSet<City> cities;
 	

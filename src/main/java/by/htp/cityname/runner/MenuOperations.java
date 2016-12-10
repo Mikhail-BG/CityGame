@@ -35,15 +35,15 @@ public class MenuOperations {
 
 	private static void cityNonExists(String value) {
 		System.out.println("Такого города '" + value + "' нет.");
-		
-		if (_objEmulCity != null){
+
+		if (_objEmulCity != null) {
 			outMessage(_objEmulCity);
 		} else {
 			System.out.print("Введите название города и нажмите enter: ");
 		}
 	}
-	
-	private static void correctInput(CitySet cities, CitySet usedCities, String value){
+
+	private static void correctInput(CitySet cities, CitySet usedCities, String value) {
 		if (nextCityCorrect(_objEmulCity, value)) {
 			if (!cityWasBefore(usedCities, value)) {
 				correctCity(cities, usedCities, value);
@@ -97,8 +97,9 @@ public class MenuOperations {
 		}
 		return false;
 	}
-	
-	private static void outMessage(City _objEmulCity){
-		System.out.print("Введите название следующего города на букуву '"+ _objEmulCity.get_chrLastChar() + "' и нажмите enter: ");
+
+	private static void outMessage(City _objEmulCity) {
+		System.out.print("Введите название следующего города на букуву '" + _objEmulCity.get_chrLastChar()
+				+ "' и нажмите enter: ");
 	}
 }

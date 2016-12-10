@@ -8,9 +8,8 @@ public final class City {
 	private char[] chrExceptionsChar = {'.', 'Й','Ы','Ь', 'Ъ'};
 	
 	public City(String _strName) {
-		super();
-		this._strName = _strName;
-		char[] chrArray = _strName.toCharArray();
+		this._strName = _strName.toUpperCase();
+		char[] chrArray = this._strName.toCharArray();
 		this._chrFirstChar = chrArray[0];
 		this._chrLastChar = defineCorrectLastChar(chrArray);
 	}

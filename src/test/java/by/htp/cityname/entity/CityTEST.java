@@ -28,9 +28,9 @@ public class CityTest {
 	@Parameterized.Parameters
     public static Collection<Object[]> getTestData() {
           return Arrays.asList(new Object[][]{
-        {"Минск", 'М', 'к'},
-        {"Варшава", 'В', 'а'},
-        {"Казань", 'К', 'н'},
+        {"МИНСК", 'М', 'К'},
+        {"СИДНЕЙ", 'С', 'Е'},
+        {"КАЗАНЬ", 'К', 'Н'},
     });
  }
     
