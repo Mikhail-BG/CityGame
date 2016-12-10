@@ -13,13 +13,13 @@ import org.junit.runners.Parameterized;
 
 @RunWith(Parameterized.class)
 
-public class CityTEST {
+public class CityTest {
 	
 	public String name;
 	public char firstChar;
 	public char lastChar;
 	
-	public CityTEST(String name, char firstChar, char lastChar){
+	public CityTest(String name, char firstChar, char lastChar){
 		this.name = name;
 		this.firstChar = firstChar;
 		this.lastChar = lastChar;
