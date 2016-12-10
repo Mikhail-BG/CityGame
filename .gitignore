@@ -20,9 +20,6 @@ local.properties
 # Eclipse Core
 .project
 
-# Created files #
-files/
-
 # My logs #
 log/
 
