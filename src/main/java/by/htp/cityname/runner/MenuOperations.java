@@ -29,7 +29,7 @@ public class MenuOperations {
 	private static void cityExists(CitySet cities, CitySet usedCities, String value) {
 		System.out.println("Введеный город '" + value + "' есть");
 		_objEmulCity = cityOut(cities, usedCities, value);
-		System.out.println("Город: " + _objEmulCity.get_strName());
+		System.out.println("Город: " + _objEmulCity.getName());
 		outMessage(_objEmulCity);
 	}
 
@@ -52,20 +52,20 @@ public class MenuOperations {
 				outMessage(_objEmulCity);
 			}
 		} else {
-			System.out.println("Название города должно начинаться на '" + _objEmulCity.get_chrLastChar() + "'");
+			System.out.println("Название города должно начинаться на '" + _objEmulCity.getLastChar() + "'");
 			outMessage(_objEmulCity);
 		}
 	}
 
 	private static City cityOut(CitySet cities, CitySet usedCities, String value) {
 		City cityAdd = new City(value);
-		char lastChar = cityAdd.get_chrLastChar();
+		char lastChar = cityAdd.getLastChar();
 		usedCities.addCity(cityAdd);
 		Iterator<City> iterator = cities.iterator();
 
 		while (iterator.hasNext()) {
 			City city = iterator.next();
-			if (lastChar == city.get_chrFirstChar()) {
+			if (lastChar == city.getFirstChar()) {
 				cities.removeCity(city);
 				usedCities.addCity(city);
 				return city;
@@ -80,7 +80,7 @@ public class MenuOperations {
 	}
 
 	private static boolean nextCityCorrect(City city, String value) {
-		if (value.toCharArray()[0] != city.get_chrLastChar()) {
+		if (value.toCharArray()[0] != city.getLastChar()) {
 			return false;
 		}
 		return true;
@@ -91,7 +91,7 @@ public class MenuOperations {
 		Iterator<City> iterator = usedCities.iterator();
 		while (iterator.hasNext()) {
 			City city = iterator.next();
-			if (city.get_strName().equals(cityChk.get_strName())) {
+			if (city.getName().equals(cityChk.getName())) {
 				return true;
 			}
 		}
@@ -99,7 +99,7 @@ public class MenuOperations {
 	}
 
 	private static void outMessage(City _objEmulCity) {
-		System.out.print("Введите название следующего города на букуву '" + _objEmulCity.get_chrLastChar()
+		System.out.print("Введите название следующего города на букуву '" + _objEmulCity.getLastChar()
 				+ "' и нажмите enter: ");
 	}
 }

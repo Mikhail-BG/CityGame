@@ -7,8 +7,8 @@ public final class City {
 	private char _chrLastChar;
 	private char[] chrExceptionsChar = {'.', 'Й','Ы','Ь', 'Ъ'};
 	
-	public City(String _strName) {
-		this._strName = _strName.toUpperCase();
+	public City(String strName) {
+		this._strName = strName.toUpperCase();
 		char[] chrArray = this._strName.toCharArray();
 		this._chrFirstChar = chrArray[0];
 		this._chrLastChar = defineCorrectLastChar(chrArray);
@@ -26,16 +26,16 @@ public final class City {
 		return chrLastSymb;
 	}
 
-	public String get_strName() {
+	public String getName() {
 		return _strName;
 	}
 
-	public char get_chrFirstChar() {
+	public char getFirstChar() {
 		return _chrFirstChar;
 	}
 
 
-	public char get_chrLastChar() {
+	public char getLastChar() {
 		return _chrLastChar;
 	}
 
@@ -73,7 +73,7 @@ public final class City {
 
 	@Override
 	public String toString() {
-		return "City [_strName=" + _strName + ", _chrFirstChar=" + _chrFirstChar + ", _chrLastChar=" + _chrLastChar
+		return "City [Name=" + _strName + ", First Char=" + _chrFirstChar + ", Last Char=" + _chrLastChar
 				+ "]";
 	}
 	

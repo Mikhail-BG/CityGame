@@ -49,18 +49,18 @@ public class CityTest {
 
 	@Test
 	public void tstName() {
-		assertEquals(name, city.get_strName());
+		assertEquals(name, city.getName());
 		
 	}
 	
 	@Test
 	public void tstFirstChar() {
-		assertEquals(firstChar, city.get_chrFirstChar());
+		assertEquals(firstChar, city.getFirstChar());
 	}
 	
 	@Test
 	public void tstLastChar() {
-		assertEquals(lastChar, city.get_chrLastChar());
+		assertEquals(lastChar, city.getLastChar());
 	}
 
 }
