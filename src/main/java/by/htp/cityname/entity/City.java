@@ -5,7 +5,7 @@ public final class City {
 	private String _strName;
 	private char _chrFirstChar;
 	private char _chrLastChar;
-	private char[] chrExceptionsChar = {'й','ы','ь', 'ъ'};
+	private char[] chrExceptionsChar = {'.', 'Й','Ы','Ь', 'Ъ'};
 	
 	public City(String _strName) {
 		super();

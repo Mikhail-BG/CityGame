@@ -1,6 +1,6 @@
 package by.htp.cityname.runner;
 
-public class Runner {
+public class CityNameRunner {
 
 	public static void main(String[] args) {
 		

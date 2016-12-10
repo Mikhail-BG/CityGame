@@ -1,21 +1,19 @@
 package by.htp.cityname.logic;
 
 import java.io.IOException;
-import java.util.HashSet;
-
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.XMLReaderFactory;
 
-import by.htp.cityname.entity.City;
+import by.htp.cityname.entity.CitySet;
 
 public class XMLReader {
 	
-	public XMLReader(HashSet<City> cities){
+	public XMLReader(CitySet cities){
 		readerXML(cities);
 	}
 	
-	public void readerXML(HashSet<City> cities){
+	public void readerXML(CitySet cities){
 		try {
 			org.xml.sax.XMLReader reader = XMLReaderFactory.createXMLReader();
 			InputSource source = new InputSource("files/rocid.xml");

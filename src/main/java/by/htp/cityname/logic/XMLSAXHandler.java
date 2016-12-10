@@ -7,13 +7,14 @@ import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
 import by.htp.cityname.entity.City;
+import by.htp.cityname.entity.CitySet;
 
 public class XMLSAXHandler extends DefaultHandler {
 	
 	private String strThisElement;
-	HashSet<City> cities = new HashSet<City>();
+	CitySet cities = new CitySet();
 	
-	public XMLSAXHandler(HashSet<City> cities){
+	public XMLSAXHandler(CitySet cities){
 		this.cities = cities;
 	}
 
@@ -38,7 +39,7 @@ public class XMLSAXHandler extends DefaultHandler {
 	public void characters(char[] ch, int start, int length) throws SAXException {
 		if (strThisElement.equals("name")){
 			City city = new City(new String(ch,start,length).toUpperCase());
-			cities.add(city);
+			cities.addCity(city);
 		}
 	}
 }
