@@ -9,6 +9,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+
+import by.htp.cityname.runner.Configurator;
 //import org.junit.runners.Parameterized.Parameters;
 
 @RunWith(Parameterized.class)
@@ -28,9 +30,9 @@ public class CityTest {
 	@Parameterized.Parameters
     public static Collection<Object[]> getTestData() {
           return Arrays.asList(new Object[][]{
-        {"МИНСК", 'М', 'К'},
-        {"СИДНЕЙ", 'С', 'Е'},
-        {"КАЗАНЬ", 'К', 'Н'},
+        {Configurator.getKey("city1Name"), Configurator.getKey("city1firstChar").charAt(0), Configurator.getKey("city1lastChar").charAt(0)},
+        {Configurator.getKey("city2Name"), Configurator.getKey("city2firstChar").charAt(0), Configurator.getKey("city2lastChar").charAt(0)},
+        {Configurator.getKey("city3Name"), Configurator.getKey("city3firstChar").charAt(0), Configurator.getKey("city3lastChar").charAt(0)},
     });
  }
     
@@ -43,14 +45,8 @@ public class CityTest {
 	}
 
 	@Test
-	public void tstCity() {
-		assertNotNull(city);
-	}
-
-	@Test
 	public void tstName() {
 		assertEquals(name, city.getName());
-		
 	}
 	
 	@Test
@@ -62,5 +58,4 @@ public class CityTest {
 	public void tstLastChar() {
 		assertEquals(lastChar, city.getLastChar());
 	}
-
 }
