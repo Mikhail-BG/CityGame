@@ -2,6 +2,7 @@ package by.htp.cityname.runner;
 
 import static org.junit.Assert.*;
 
+import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
@@ -25,26 +26,37 @@ public class MenuOperationsTest {
 	
 	@Before
 	public void everyTime(){
-		value = Configurator.getKey("city1Name");
-		city = new City(value);
-		cities.addCity(city);
-		cities.addCity(new City(Configurator.getKey("city3Name")));
+		
 	}
 
+	@Ignore
 	@Test
-	public void firstRunAddCityToUsedCities() {
-		System.out.println("---");
-		value = "норильск";
+	public void youWon() {
+		cities.addCity(new City(Configurator.getKey("city1Name")));
+		cities.addCity(new City(Configurator.getKey("city2Name")));
+		value = Configurator.getKey("city1Name");
 		MenuOperations.processCity(cities, usedCities, value);
-		assertTrue("City removed from 'cities'", cities.containsCity(city));
+		assertFalse("City removed from 'cities', you won!", cities.containsCity(new City(value)));
+	}
+	
+	//@Ignore
+	@Test
+	public void firstRun() {
+		cities.addCity(new City(Configurator.getKey("city1Name")));
+		cities.addCity(new City(Configurator.getKey("city3Name")));
+		city = new City(Configurator.getKey("city1Name"));
+		value = Configurator.getKey("city1Name");
+		MenuOperations.processCity(cities, usedCities, value);
+		System.out.println();
+		assertFalse("City removed from 'cities'", cities.containsCity(city));
 		assertTrue("City added to 'usedCities', AI proposes other city", usedCities.containsCity(city));
 	}
 	
-	@Test
-	public void runDeleteCityInCities() {
-		System.out.println("---");
-		System.out.println("test2");
-		MenuOperations.processCity(cities, usedCities, value);
-		assertFalse("City removed from 'cities', you won!", cities.containsCity(city));
+	@AfterClass
+	public static void afterClean(){
+		cities = null;
+		usedCities = null;
+		city = null;
+		value = null;
 	}
 }

@@ -80,7 +80,4 @@ public final class City {
 		return "City [Name=" + _strName + ", First Char=" + _chrFirstChar + ", Last Char=" + _chrLastChar
 				+ "]";
 	}
-	
-	
-	
 }

@@ -51,7 +51,7 @@ public class XMLReaderTest {
 	}
 	
 	@AfterClass
-	public static void afterAll(){
+	public static void afterClean(){
 		cities = null;
 	}
 

@@ -8,10 +8,12 @@ import org.junit.BeforeClass;
 import org.junit.AfterClass;
 import org.junit.Test;
 
+import by.htp.cityname.runner.Configurator;
+
 public class CitySetTest {
 
 	public static CitySet cities;
-	public static String cityName1 = "минск";
+	public static String cityName1 = Configurator.getKey("city1Name");
 	public static City city1;
 	public static City city2;
 	public static int NumOfCities = 1;
@@ -25,28 +27,27 @@ public class CitySetTest {
 	}
 	
 	@Test
-	public void cityAdd() {
-		assertTrue("city1 added",cities.addCity(city1));
+	public void tstCityAdd() {
 		assertFalse("city2 not added",cities.addCity(city2));
 	}
 	
 	@Test
-	public void cityNumberOfElements() {
+	public void tstCityNumberOfElements() {
 		assertEquals("Number of cities", NumOfCities, cities.numberOfElements());
 	}
 	
 	@Test
-	public void cityRemove() {
+	public void tstCityRemove() {
 		assertTrue("city1 removed", cities.removeCity(city1));
 	}
 	
 	@Test
-	public void cityContains(){
+	public void tstCityContains(){
 		assertTrue("city1 in cities", cities.containsCity(new City(cityName1)));
 	}
 	
 	@Test
-	public void iteratorCity(){
+	public void tstIteratorCity(){
 		Iterator<City> iterator = cities.iterator();
 		int index = 0;
 		while (iterator.hasNext()){
@@ -57,8 +58,9 @@ public class CitySetTest {
 	}
 	
 	@AfterClass
-	public static void removeObjcs() {
+	public static void afterClean() {
 		city1 = null;
+		city2 = null;
 		cities = null;
 	}
 }
