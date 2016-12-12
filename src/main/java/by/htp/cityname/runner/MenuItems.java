@@ -12,9 +12,6 @@ public class MenuItems {
 	public static void menuStart(){
 		@SuppressWarnings("unused")
 		XMLReader reader = new XMLReader(cities);
-		System.out.println("Для выхода введите '0'.");
-		System.out.print("Введите название города и нажмите enter: ");
-		
 		boolean exit = false;
 		
 		try(Scanner userInput = new Scanner(System.in)){
@@ -22,6 +19,11 @@ public class MenuItems {
 		while (!exit) {
 			String value = userInput.nextLine();
 			value = value.toUpperCase().trim();
+			if (value.equals("")){
+				System.out.println("Вы ничего не ввели.");
+				System.out.print("Введите название города и нажмите enter: ");
+				continue;
+			}
 			if (value.equals("0")) {
 				exit = true;
 			} else {
@@ -30,8 +32,7 @@ public class MenuItems {
 			}
 		}
 		} catch (Exception e) {
-			System.out.println("Сломали :( ");
-			System.out.println(e.getMessage());
+			System.out.println("Error! " + e.getMessage());
 		}
 	}
 }

@@ -10,7 +10,6 @@ public class MenuOperations {
 	private static City _objEmulCity;
 
 	public static void processCity(CitySet cities, CitySet usedCities, String value) {
-
 		if (_objEmulCity != null) {
 			correctInput(cities, usedCities, value);
 		} else {
@@ -29,8 +28,13 @@ public class MenuOperations {
 	private static void cityExists(CitySet cities, CitySet usedCities, String value) {
 		System.out.println("Введеный город '" + value + "' есть");
 		_objEmulCity = cityOut(cities, usedCities, value);
+		if (_objEmulCity!=null){
 		System.out.println("Город: " + _objEmulCity.getName());
 		outMessage(_objEmulCity);
+		} else {
+			youWon();
+			System.exit(0);
+		}
 	}
 
 	private static void cityNonExists(String value) {
@@ -60,6 +64,7 @@ public class MenuOperations {
 	private static City cityOut(CitySet cities, CitySet usedCities, String value) {
 		City cityAdd = new City(value);
 		char lastChar = cityAdd.getLastChar();
+		cities.removeCity(cityAdd);
 		usedCities.addCity(cityAdd);
 		Iterator<City> iterator = cities.iterator();
 
@@ -101,5 +106,9 @@ public class MenuOperations {
 	private static void outMessage(City _objEmulCity) {
 		System.out.print("Введите название следующего города на букуву '" + _objEmulCity.getLastChar()
 				+ "' и нажмите enter: ");
+	}
+	
+	private static void youWon(){
+		System.out.println("Вы выиграли!");
 	}
 }

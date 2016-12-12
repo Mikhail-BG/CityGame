@@ -16,12 +16,16 @@ public final class City {
 	
 	private char defineCorrectLastChar(char[] chrArray){
 		char chrLastSymb = chrArray[chrArray.length-1];
-		for (int i=chrArray.length-1; i > 0; i-- ) {
+		char check = chrLastSymb;
+		for (int i = chrArray.length-1; i > 0; i-- ) {
 			for (char symb: chrExceptionsChar){
 				if (chrArray[i]==symb) {
 					chrLastSymb = chrArray[i-1];
 				}
 			}
+			if (check == chrLastSymb){break;
+			} else {check = chrLastSymb;
+			} 
 		}
 		return chrLastSymb;
 	}

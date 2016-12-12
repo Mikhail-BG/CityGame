@@ -53,7 +53,7 @@ public class CitySetTest {
 			index++;
 			if (index == 20) {break;}
 		}
-		assertEquals(NumOfCities,index);
+		assertEquals("TROUBLE WITH ITERATOR", cities.numberOfElements(),index);
 	}
 	
 	@AfterClass

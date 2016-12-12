@@ -56,6 +56,7 @@ public class CityTest {
 	
 	@Test
 	public void tstLastChar() {
+		System.out.println(city.getLastChar());
 		assertEquals(lastChar, city.getLastChar());
 	}
 }
