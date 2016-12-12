@@ -27,7 +27,7 @@ public class MenuItems {
 			if (value.equals("0")) {
 				exit = true;
 			} else {
-				MenuOperations.processCity(cities, usedCities, value);
+				exit = MenuOperations.processCity(cities, usedCities, value);
 				continue;
 			}
 		}

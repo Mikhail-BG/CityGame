@@ -29,7 +29,7 @@ public class MenuOperationsTest {
 		
 	}
 
-	@Ignore
+	//@Ignore
 	@Test
 	public void youWon() {
 		cities.addCity(new City(Configurator.getKey("city1Name")));

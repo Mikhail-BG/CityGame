@@ -9,35 +9,36 @@ public class MenuOperations {
 
 	private static City _objEmulCity;
 
-	public static void processCity(CitySet cities, CitySet usedCities, String value) {
+	public static boolean processCity(CitySet cities, CitySet usedCities, String value) {
 		if (_objEmulCity != null) {
-			correctInput(cities, usedCities, value);
+			return correctInput(cities, usedCities, value);
 		} else {
-			correctCity(cities, usedCities, value);
+			return correctCity(cities, usedCities, value);
 		}
 	}
 
-	private static void correctCity(CitySet cities, CitySet usedCities, String value) {
+	private static boolean correctCity(CitySet cities, CitySet usedCities, String value) {
 		if (ifCityInBase(cities, value)) {
-			cityExists(cities, usedCities, value);
+			return cityExists(cities, usedCities, value);
 		} else {
-			cityNonExists(value);
+			return cityNonExists(value);
 		}
 	}
 
-	private static void cityExists(CitySet cities, CitySet usedCities, String value) {
+	private static boolean cityExists(CitySet cities, CitySet usedCities, String value) {
 		System.out.println("Введеный город '" + value + "' есть");
 		_objEmulCity = cityOut(cities, usedCities, value);
 		if (_objEmulCity!=null){
 		System.out.println("Город: " + _objEmulCity.getName());
 		outMessage(_objEmulCity);
+		return false;
 		} else {
 			youWon();
-			System.exit(0);
+			return true;
 		}
 	}
 
-	private static void cityNonExists(String value) {
+	private static boolean cityNonExists(String value) {
 		System.out.println("Такого города '" + value + "' нет.");
 
 		if (_objEmulCity != null) {
@@ -45,19 +46,22 @@ public class MenuOperations {
 		} else {
 			System.out.print("Введите название города и нажмите enter: ");
 		}
+		return false;
 	}
 
-	private static void correctInput(CitySet cities, CitySet usedCities, String value) {
+	private static boolean correctInput(CitySet cities, CitySet usedCities, String value) {
 		if (nextCityCorrect(_objEmulCity, value)) {
 			if (!cityWasBefore(usedCities, value)) {
-				correctCity(cities, usedCities, value);
+				return correctCity(cities, usedCities, value);
 			} else {
 				System.out.println("Город '" + value + "' уже был.");
 				outMessage(_objEmulCity);
+				return false;
 			}
 		} else {
 			System.out.println("Название города должно начинаться на '" + _objEmulCity.getLastChar() + "'");
 			outMessage(_objEmulCity);
+			return false;
 		}
 	}
 
@@ -109,6 +113,6 @@ public class MenuOperations {
 	}
 	
 	private static void youWon(){
-		System.out.println("Вы выиграли!");
+		System.out.println("Вы выиграли! Игра закончена.");
 	}
 }
