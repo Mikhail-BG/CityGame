@@ -13,8 +13,9 @@ import by.htp.cityname.logic.XMLReaderTest;
 	CityTest.class,
 	CitySetTest.class,
 	XMLReaderTest.class,
-	MenuItemsTest.class,
 	MenuOperationsTest.class,
+	MenuItemsTest.class
+	
 })
 
 public class RunnerTest {

@@ -35,8 +35,7 @@ public class MenuOperationsTest {
 		cities.addCity(new City(Configurator.getKey("city1Name")));
 		cities.addCity(new City(Configurator.getKey("city2Name")));
 		value = Configurator.getKey("city1Name");
-		MenuOperations.processCity(cities, usedCities, value);
-		assertFalse("City removed from 'cities', you won!", cities.containsCity(new City(value)));
+		assertTrue("You won!", MenuOperations.processCity(cities, usedCities, value));
 	}
 	
 	//@Ignore

@@ -6,6 +6,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 import static org.mockito.Mockito.*;
 
+import by.htp.cityname.entity.City;
 import by.htp.cityname.entity.CitySet;
 
 public class MenuItemsTest {
@@ -19,7 +20,7 @@ public class MenuItemsTest {
 		value = Configurator.getKey("city1Name");
 	}
 	
-	//@Ignore("Doesn't work in Maven")
+	@Ignore("Doesn't work in Maven")
 	@Test(expected = Exception.class)
 	public void citiesNull() {
 		MenuOperations.processCity(null, cities, value);
